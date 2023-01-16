@@ -1,19 +1,20 @@
 # !/bin/bash
-calculator() {
-
+calculator() {							#Function Created
 	echo "Enter Two numbers : "
-	$num1
-	$num2
+	read num1
+	read num2
 
 	echo "Enter Numbers:"
 	echo "1. Add"
 	echo "2. Subtract"
 	echo "3. Multiplication"
 	echo "4. Division"
-	echo "Enter your choice"
-	$option
+	echo "5. Exponent"
 
-	if [ $option -eq 1 ]
+	echo "Enter your choice"
+	read option
+
+	if [ $option -eq 1 ]					#if-else block started
 	then
 	echo " result: " $[$num1+$num2]
 	echo " result: " $[$num1+$num2] >> output
@@ -33,10 +34,14 @@ calculator() {
 	echo " result: " $[$num1/$num2]
 	echo " result: " $[$num1/$num2] >> output
 
+	elif [ $option -eq 5 ]
+	then
+	echo " result: " $[$num1**$num2]
+	echo " result: " $[$num1**$num2] >> output
+
 	else
 	echo "Wrong choice"
 	echo "Wrong choice" >> output
 	fi
 }
-
-calculator $num1 $num2 $option
+calculator
